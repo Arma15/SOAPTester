@@ -60,13 +60,21 @@ namespace SOAPTester
 
         private void SendBtn_Click(object sender, EventArgs e)
         {
-            ReturnedXML = SendXMLMessage(CurrXML);
-            if (ReturnedXML == "")
+            try
             {
-                MessageBox.Show("Error.. empty returned message..");
-                return;
+                ReturnedXML = SendXMLMessage(CurrXML);
+                if (ReturnedXML == "")
+                {
+                    MessageBox.Show("Error.. empty returned message..");
+                    return;
+                }
+                Returned.Text = ReturnedXML;
             }
-            Returned.Text = ReturnedXML;
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+            
         }
 
         public string CreateFeaturesPassedMessage()
@@ -149,6 +157,11 @@ namespace SOAPTester
 
         public HttpWebRequest CreateSOAPWebRequest()
         {
+            if (EndPoint.Text.ToString().Trim() == "")
+            {
+                throw new Exception("Error: Empty URL Endpoint..");
+                
+            }
             //Making Web Request    
             HttpWebRequest Req = (HttpWebRequest)WebRequest.Create(EndPoint.Text.ToString());
             //Content_type    
