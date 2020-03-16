@@ -1,0 +1,9 @@
+C:\Users\kflor\source\repos\SOAPTester\SOAPTester\bin\Debug\SOAPTester.exe.config
+C:\Users\kflor\source\repos\SOAPTester\SOAPTester\bin\Debug\SOAPTester.exe
+C:\Users\kflor\source\repos\SOAPTester\SOAPTester\bin\Debug\SOAPTester.pdb
+C:\Users\kflor\source\repos\SOAPTester\SOAPTester\obj\Debug\SOAPTester.csprojAssemblyReference.cache
+C:\Users\kflor\source\repos\SOAPTester\SOAPTester\obj\Debug\SOAPTester.Form1.resources
+C:\Users\kflor\source\repos\SOAPTester\SOAPTester\obj\Debug\SOAPTester.Properties.Resources.resources
+C:\Users\kflor\source\repos\SOAPTester\SOAPTester\obj\Debug\SOAPTester.csproj.GenerateResource.cache
+C:\Users\kflor\source\repos\SOAPTester\SOAPTester\obj\Debug\SOAPTester.exe
+C:\Users\kflor\source\repos\SOAPTester\SOAPTester\obj\Debug\SOAPTester.pdb
