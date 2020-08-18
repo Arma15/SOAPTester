@@ -161,11 +161,15 @@ namespace SOAPTester
             // Start New Section
             xml.Append($"<sen:attachingUserID>{userID}</sen:attachingUserID>");
             xml.Append("<sen:attachmentFiles>");
+
             xml.Append("<sen:AttachmentFile>");
+
             xml.Append($"<sen:fileContent>{encodedImage}</sen:fileContent>");
             xml.Append($"<sen:fileName>{fileName }</sen:fileName>");
             xml.Append($"<sen:filePath>{filePath}</sen:filePath>");
-            xml.Append("<sen:AttachmentFile>");
+
+            xml.Append("</sen:AttachmentFile>");
+
             xml.Append("</sen:attachmentFiles>");
             xml.Append($"<sen:operationName>{operationName}</sen:operationName>");
             xml.Append($"<sen:partName>{partName}</sen:partName>");
