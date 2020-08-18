@@ -62,11 +62,18 @@ namespace SOAPTester
         {
             try
             {
-                ReturnedXML = SendXMLMessage(CurrXML);
-                if (ReturnedXML == "")
+                if (PictureRad.Checked)
                 {
-                    MessageBox.Show("Error.. empty returned message..");
-                    return;
+                    ReturnedXML = SendXMLMessage(CreatePicMessage(MakePicString(ImagePath.Text.Trim())));
+                }
+                else
+                {
+                    ReturnedXML = SendXMLMessage(CurrXML);
+                    if (ReturnedXML == "")
+                    {
+                        MessageBox.Show("Error.. empty returned message..");
+                        return;
+                    }
                 }
                 Returned.Text = ReturnedXML;
             }
@@ -74,7 +81,21 @@ namespace SOAPTester
             {
                 MessageBox.Show(ex.Message.ToString());
             }
-            
+        }
+
+        private string MakePicString(string path)
+        {
+            using (Image image = Image.FromFile(path))
+            {
+                using (MemoryStream m = new MemoryStream())
+                {
+                    image.Save(m, image.RawFormat);
+                    byte[] imageBytes = m.ToArray();
+
+                    // Convert byte[] to Base64 String
+                    return Convert.ToBase64String(imageBytes);
+                }
+            }
         }
 
         public string CreateFeaturesPassedMessage()
@@ -115,6 +136,91 @@ namespace SOAPTester
 
             return xml.ToString();
         }
+
+
+        public string CreatePicMessage(string encodedImage)
+        {
+            StringBuilder xml = new StringBuilder();
+            string userID = "212036234";
+            string fileName = "GE2.jpg";
+            string operationName = "CTM_Gan-SubA";
+            string partName = "5454001-170-SUBSA";
+            string password = "D1NPnWPE5WwnE9vatgdNzUFICLN1WA3GM6UCLN1WA3GM6U";
+            string partRevision = "N/A";
+            string serialNumber = "WebTestAME002";
+            string attachingUserID = "212669289";
+            string filePath = "";
+
+            //Message Frame
+            xml.Append(@"<soapenv:Envelope xmlns:soapenv=""http://schemas.xmlsoap.org/soap/envelope/"" xmlns:mes=""http://mes.health.ge.com"" xmlns:sen=""http://sendAttachment.mes.health.ge.com"">");
+            xml.Append("<soapenv:Header/>");
+            xml.Append("<soapenv:Body>");
+            xml.Append("<mes:sendAttachment>");
+            xml.Append("<mes:in0>");
+
+            // Start New Section
+            xml.Append($"<sen:attachingUserID>{userID}</sen:attachingUserID>");
+            xml.Append("<sen:attachmentFiles>");
+            xml.Append("<sen:AttachmentFile>");
+            xml.Append($"<sen:fileContent>{encodedImage}</sen:fileContent>");
+            xml.Append($"<sen:fileName>{fileName }</sen:fileName>");
+            xml.Append($"<sen:filePath>{filePath}</sen:filePath>");
+            xml.Append("<sen:AttachmentFile>");
+            xml.Append("</sen:attachmentFiles>");
+            xml.Append($"<sen:operationName>{operationName}</sen:operationName>");
+            xml.Append($"<sen:partName>{partName}</sen:partName>");
+            xml.Append($"<sen:partRevision>{partRevision}</sen:partRevision>");
+            xml.Append($"<sen:password>{password}</sen:password>");
+            xml.Append($"<sen:serialNumber>{serialNumber}</sen:serialNumber>");
+            xml.Append($"<sen:userID>{attachingUserID}</sen:userID>");
+            // End New Section
+
+            xml.Append("</mes:in0>");
+            xml.Append("</mes:sendAttachment>");
+            xml.Append("</soapenv:Body>");
+            xml.Append("</soapenv:Envelope>");
+            // End Frame
+
+            return xml.ToString();
+            /*
+            <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mes="http://mes.health.ge.com" xmlns:sen="http://sendAttachment.mes.health.ge.com">
+               <soapenv:Header/>
+               <soapenv:Body>
+                  <mes:sendAttachment>
+                     <mes:in0>
+                        <!--Optional:-->
+                        <sen:attachingUserID>212036234</sen:attachingUserID>
+                        <!--Optional:-->
+                        <sen:attachmentFiles>
+                           <!--Zero or more repetitions:-->
+                           <sen:AttachmentFile>
+                              <!--Optional:-->
+                              <sen:fileContent>Qsdlfjsdfklj                ***  THIS CODE STRING IS VERY LONG dependent on file size….
+                              <!--Optional:-->
+                              <sen:fileName>GE2.jpg</sen:fileName>
+                              <!--Optional:-->
+                              <sen:filePath>?</sen:filePath>
+                           </sen:AttachmentFile>
+                        </sen:attachmentFiles>
+                        <!--Optional:-->
+                        <sen:operationName>CTM_Gan-SubA</sen:operationName>
+                        <!--Optional:-->
+                        <sen:partName>5454001-170-SUBSA</sen:partName>
+                        <!--Optional:-->
+                        <sen:partRevision>N/A</sen:partRevision>
+                        <!--Optional:-->
+                        <sen:password>D1NPnWPE5WwnE9vatgdNzUFICLN1WA3GM6UCLN1WA3GM6U</sen:password>
+                        <!--Optional:-->
+                        <sen:serialNumber>WebTestAME006</sen:serialNumber>
+                        <!--Optional:-->
+                        <sen:userID>212669289</sen:userID>
+                     </mes:in0>
+                  </mes:sendAttachment>
+               </soapenv:Body>
+            </soapenv:Envelope>
+             */
+        }
+
 
         public string CreateDCP(string tag, string value)
         {
