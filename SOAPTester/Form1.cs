@@ -141,7 +141,7 @@ namespace SOAPTester
         public string CreatePicMessage(string encodedImage)
         {
             StringBuilder xml = new StringBuilder();
-            string userID = "212036234";
+            string userID = "555333333";
             string fileName = "GE2.jpg";
             string operationName = "CTM_Gan-SubA";
             string partName = "5454001-170-SUBSA";
