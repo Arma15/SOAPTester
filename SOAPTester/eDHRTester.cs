@@ -191,43 +191,6 @@ namespace SOAPTester
 
             return xml.ToString();
 
-            /*
-            <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mes="http://mes.health.ge.com" xmlns:sen="http://sendAttachment.mes.health.ge.com">
-               <soapenv:Header/>
-               <soapenv:Body>
-                  <mes:sendAttachment>
-                     <mes:in0>
-                        <!--Optional:-->
-                        <sen:attachingUserID>212036234</sen:attachingUserID>
-                        <!--Optional:-->
-                        <sen:attachmentFiles>
-                           <!--Zero or more repetitions:-->
-                           <sen:AttachmentFile>
-                              <!--Optional:-->
-                              <sen:fileContent>Qsdlfjsdfklj                ***  THIS CODE STRING IS VERY LONG dependent on file size….
-                              <!--Optional:-->
-                              <sen:fileName>GE2.jpg</sen:fileName>
-                              <!--Optional:-->
-                              <sen:filePath>?</sen:filePath>
-                           </sen:AttachmentFile>
-                        </sen:attachmentFiles>
-                        <!--Optional:-->
-                        <sen:operationName>CTM_Gan-SubA</sen:operationName>
-                        <!--Optional:-->
-                        <sen:partName>5454001-170-SUBSA</sen:partName>
-                        <!--Optional:-->
-                        <sen:partRevision>N/A</sen:partRevision>
-                        <!--Optional:-->
-                        <sen:password>D1NPnWPE5WwnE9vatgdNzUFICLN1WA3GM6UCLN1WA3GM6U</sen:password>
-                        <!--Optional:-->
-                        <sen:serialNumber>WebTestAME006</sen:serialNumber>
-                        <!--Optional:-->
-                        <sen:userID>212669289</sen:userID>
-                     </mes:in0>
-                  </mes:sendAttachment>
-               </soapenv:Body>
-            </soapenv:Envelope>
-             */
         }
 
         public string CreateGetUnitInfoMessage()
@@ -238,12 +201,14 @@ namespace SOAPTester
             xml.Append("<soapenv:Body>");
             xml.Append("<mes:getUnitInfo>");
             xml.Append("<mes:in0>");
+
             xml.Append($"<get:password>{Password.Text.Trim()}</get:password>");
             xml.Append($"<get:serialNumber>{Serial.Text.Trim()}</get:serialNumber>");
             xml.Append($"<get:userID>{SSO.Text.Trim()}</get:userID>");
-            xml.Append("<mes:in0>");
-            xml.Append("<mes:getUnitInfo>");
-            xml.Append("<soapenv:Body>");
+
+            xml.Append("</mes:in0>");
+            xml.Append("</mes:getUnitInfo>");
+            xml.Append("</soapenv:Body>");
             xml.Append("</soapenv:Envelope>");
 
             return xml.ToString();
