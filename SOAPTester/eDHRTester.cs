@@ -68,7 +68,7 @@ namespace SOAPTester
                 }
                 else if (UnitInfoRad.Checked)
                 {
-
+                    ReturnedXML = SendXMLMessage(CreateGetUnitInfoMessage());
                 }
                 else
                 {

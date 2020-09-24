@@ -5,6 +5,5 @@ C:\Users\kflor\source\repos\SOAPTester\SOAPTester\obj\Release\SOAPTester.Propert
 C:\Users\kflor\source\repos\SOAPTester\SOAPTester\obj\Release\SOAPTester.csproj.GenerateResource.cache
 C:\Users\kflor\source\repos\SOAPTester\SOAPTester\obj\Release\SOAPTester.exe
 C:\Users\kflor\source\repos\SOAPTester\SOAPTester\obj\Release\SOAPTester.pdb
-C:\Users\kflor\source\repos\SOAPTester\SOAPTester\obj\Release\SOAPTester.csprojAssemblyReference.cache
 C:\Users\kflor\source\repos\SOAPTester\SOAPTester\obj\Release\SOAPTester.csproj.CoreCompileInputs.cache
 C:\Users\kflor\source\repos\SOAPTester\SOAPTester\obj\Release\SOAPTester.eDHRTester.resources
