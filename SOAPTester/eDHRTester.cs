@@ -233,7 +233,7 @@ namespace SOAPTester
         public string CreateGetUnitInfoMessage()
         {
             StringBuilder xml = new StringBuilder();
-            xml.Append(@"<soapenv: Envelope xmlns: soapenv = ""http://schemas.xmlsoap.org/soap/envelope/"" xmlns: mes = ""http://mes.health.ge.com"" xmlns: get = ""http://getUnitInfo.mes.health.ge.com"">");
+            xml.Append(@"<soapenv:Envelope xmlns:soapenv = ""http://schemas.xmlsoap.org/soap/envelope/"" xmlns:mes = ""http://mes.health.ge.com"" xmlns:get = ""http://getUnitInfo.mes.health.ge.com"">");
             xml.Append("<soapenv:Header/>");
             xml.Append("<soapenv:Body>");
             xml.Append("<mes:getUnitInfo>");
