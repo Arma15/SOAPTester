@@ -14,7 +14,7 @@ using System.Xml.Linq;
 
 namespace SOAPTester
 {
-    public partial class Form1 : Form
+    public partial class eDHRTester : Form
     {
         public class DCP
         {
@@ -38,7 +38,7 @@ namespace SOAPTester
         public string ReturnedXML;
         IDictionary<string, string> dict;
 
-        public Form1()
+        public eDHRTester()
         {
             InitializeComponent();
             dict = new Dictionary<string, string>();
@@ -65,6 +65,10 @@ namespace SOAPTester
                 if (PictureRad.Checked)
                 {
                     ReturnedXML = SendXMLMessage(CreatePicMessage(MakePicString(ImagePath.Text.Trim())));
+                }
+                else if (UnitInfoRad.Checked)
+                {
+
                 }
                 else
                 {
@@ -141,15 +145,15 @@ namespace SOAPTester
         public string CreatePicMessage(string encodedImage)
         {
             StringBuilder xml = new StringBuilder();
-            string userID = "555333333";
-            string fileName = "GE2.jpg";
-            string operationName = "CTM_Gan-SubA";
-            string partName = "5454001-170-SUBSA";
-            string password = "D1NPnWPE5WwnE9vatgdNzUFICLN1WA3GM6UCLN1WA3GM6U";
-            string partRevision = "N/A";
-            string serialNumber = "WebTestAME002";
-            string attachingUserID = "212669289";
-            string filePath = "";
+            string userID = SSO.Text.Trim();
+            string fileName = FileName.Text.Trim();
+            string operationName = OperationName.Text.Trim();
+            string partName = PartName.Text.Trim();
+            string password = Password.Text.Trim();
+            string partRevision = PartRevision.Text.Trim();
+            string serialNumber = Serial.Text.Trim();
+            string attachingUserID = AttachID.Text.Trim();
+            string filePath = FilePath.Text.Trim();
 
             //Message Frame
             xml.Append(@"<soapenv:Envelope xmlns:soapenv=""http://schemas.xmlsoap.org/soap/envelope/"" xmlns:mes=""http://mes.health.ge.com"" xmlns:sen=""http://sendAttachment.mes.health.ge.com"">");
@@ -186,6 +190,7 @@ namespace SOAPTester
             // End Frame
 
             return xml.ToString();
+
             /*
             <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mes="http://mes.health.ge.com" xmlns:sen="http://sendAttachment.mes.health.ge.com">
                <soapenv:Header/>
@@ -225,6 +230,39 @@ namespace SOAPTester
              */
         }
 
+        public string CreateGetUnitInfoMessage()
+        {
+            StringBuilder xml = new StringBuilder();
+            xml.Append(@"<soapenv: Envelope xmlns: soapenv = ""http://schemas.xmlsoap.org/soap/envelope/"" xmlns: mes = ""http://mes.health.ge.com"" xmlns: get = ""http://getUnitInfo.mes.health.ge.com"">");
+            xml.Append("<soapenv:Header/>");
+            xml.Append("<soapenv:Body>");
+            xml.Append("<mes:getUnitInfo>");
+            xml.Append("<mes:in0>");
+            xml.Append($"<get:password>{Password.Text.Trim()}</get:password>");
+            xml.Append($"<get:serialNumber>{Serial.Text.Trim()}</get:serialNumber>");
+            xml.Append($"<get:userID>{SSO.Text.Trim()}</get:userID>");
+            xml.Append("<mes:in0>");
+            xml.Append("<mes:getUnitInfo>");
+            xml.Append("<soapenv:Body>");
+            xml.Append("</soapenv:Envelope>");
+
+            return xml.ToString();
+
+            /*
+            <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mes="http://mes.health.ge.com" xmlns:get="http://getUnitInfo.mes.health.ge.com">
+                <soapenv:Header/>
+                <soapenv:Body>
+                    <mes:getUnitInfo>
+                        <mes:in0>
+                            <get:password>D1FaLMLucoDS.CLN1WA3GM6UCLN1WA3GM6UCLN1WA3GM6U</get:password>
+                            <get:serialNumber>09999</get:serialNumber>
+                            <get:userID>202123456</get:userID>
+                        </mes:in0>
+                </mes:getUnitInfo>
+            </soapenv:Body>
+            </soapenv:Envelope>
+             */
+        }
 
         public string CreateDCP(string tag, string value)
         {
@@ -339,5 +377,20 @@ namespace SOAPTester
             return true;
         }
 
+        private void PictureRad_CheckedChanged(object sender, EventArgs e)
+        {
+            if (PictureRad.Checked)
+            {
+                UnitInfoRad.Checked = false;
+            }
+        }
+
+        private void UnitInfoRad_CheckedChanged(object sender, EventArgs e)
+        {
+            if (UnitInfoRad.Checked)
+            {
+                PictureRad.Checked = false;
+            }
+        }
     }
 }
