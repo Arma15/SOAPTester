@@ -133,7 +133,7 @@ namespace SOAPTester
             xml.Append("</sav:dcps>");
             xml.Append($"<sav:operationName>{Operation.Text.Trim()}</sav:operationName>");
             xml.Append($"<sav:partNumber>{PartNumber.Text.Trim()}</sav:partNumber>");
-            xml.Append($"<sav:partRevision>N/A</sav:partRevision>");
+            xml.Append($"<sav:partRevision>{PartRevision.Text.Trim()}</sav:partRevision>");
             xml.Append($"<sav:password>{Password.Text.Trim()}</sav:password>");
             xml.Append($"<sav:reasonCode>PASS</sav:reasonCode>");
             xml.Append($"<sav:routeName>{Route.Text.Trim()}</sav:routeName>");
