@@ -354,6 +354,7 @@ namespace SOAPTester
             if (PictureRad.Checked)
             {
                 UnitInfoRad.Checked = false;
+                DCPRad.Checked = false;
             }
         }
 
@@ -362,6 +363,16 @@ namespace SOAPTester
             if (UnitInfoRad.Checked)
             {
                 PictureRad.Checked = false;
+                DCPRad.Checked = false;
+            }
+        }
+
+        private void DCPRad_CheckedChanged(object sender, EventArgs e)
+        {
+            if (DCPRad.Checked)
+            {
+                PictureRad.Checked = false;
+                UnitInfoRad.Checked = false;
             }
         }
 
@@ -384,5 +395,7 @@ namespace SOAPTester
                 Serial.Text = "";
             }
         }
+
+
     }
 }

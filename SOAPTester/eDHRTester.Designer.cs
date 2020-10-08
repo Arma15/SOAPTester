@@ -72,6 +72,7 @@
             this.ResetDCPs = new System.Windows.Forms.Button();
             this.Unlock = new System.Windows.Forms.TextBox();
             this.UnlockBtn = new System.Windows.Forms.Button();
+            this.DCPRad = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // EndPoint
@@ -491,11 +492,24 @@
             this.UnlockBtn.UseVisualStyleBackColor = true;
             this.UnlockBtn.Click += new System.EventHandler(this.UnlockBtn_Click);
             // 
+            // DCPRad
+            // 
+            this.DCPRad.AutoSize = true;
+            this.DCPRad.Location = new System.Drawing.Point(327, 12);
+            this.DCPRad.Name = "DCPRad";
+            this.DCPRad.Size = new System.Drawing.Size(107, 24);
+            this.DCPRad.TabIndex = 46;
+            this.DCPRad.TabStop = true;
+            this.DCPRad.Text = "Save DCP";
+            this.DCPRad.UseVisualStyleBackColor = true;
+            this.DCPRad.CheckedChanged += new System.EventHandler(this.DCPRad_CheckedChanged);
+            // 
             // eDHRTester
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 1043);
+            this.Controls.Add(this.DCPRad);
             this.Controls.Add(this.UnlockBtn);
             this.Controls.Add(this.Unlock);
             this.Controls.Add(this.ResetDCPs);
@@ -594,6 +608,7 @@
         private System.Windows.Forms.Button ResetDCPs;
         private System.Windows.Forms.TextBox Unlock;
         private System.Windows.Forms.Button UnlockBtn;
+        private System.Windows.Forms.RadioButton DCPRad;
     }
 }
 
