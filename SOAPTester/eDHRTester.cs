@@ -36,12 +36,18 @@ namespace SOAPTester
         }
 
         public string ReturnedXML;
-        IDictionary<string, string> dict;
+        public IDictionary<string, string> dict;
 
         public eDHRTester()
         {
             InitializeComponent();
             dict = new Dictionary<string, string>();
+            Operation.Text = "UNS_VividELean_70";
+            Route.Text = "UNS_VividELean_Manufacturing_Route";
+            SSO.Text = "502702092";
+            Password.Text = "D1NPnWPE5WwnE9vatgdNzUFICLN1WA3GM6UCLN1WA3GM6U";
+            PartNumber.Text = "";
+            Serial.Text = "";
         }
 
         private void AddDcpBtn_Click(object sender, EventArgs e)
@@ -125,14 +131,14 @@ namespace SOAPTester
             // End filling dcp tags and values
 
             xml.Append("</sav:dcps>");
-            xml.Append("<sav:operationName>CTM_Gan-SubA</sav:operationName>");
-            xml.Append("<sav:partNumber>5454001-170-SUBSA</sav:partNumber>");
-            xml.Append("<sav:partRevision>N/A</sav:partRevision>");
-            xml.Append("<sav:password>D1NPnWPE5WwnE9vatgdNzUFICLN1WA3GM6UCLN1WA3GM6U</sav:password>");
-            xml.Append("<sav:reasonCode>PASS</sav:reasonCode>");
-            xml.Append("<sav:routeName>CTM_Gan_SubA</sav:routeName>");
-            xml.Append("<sav:serialNumber>WebTestAME001</sav:serialNumber>");
-            xml.Append("<sav:userID>555333333</sav:userID>");
+            xml.Append($"<sav:operationName>{Operation.Text.Trim()}</sav:operationName>");
+            xml.Append($"<sav:partNumber>{PartNumber.Text.Trim()}</sav:partNumber>");
+            xml.Append($"<sav:partRevision>N/A</sav:partRevision>");
+            xml.Append($"<sav:password>{PartNumber.Text.Trim()}</sav:password>");
+            xml.Append($"<sav:reasonCode>PASS</sav:reasonCode>");
+            xml.Append($"<sav:routeName>{Route.Text.Trim()}</sav:routeName>");
+            xml.Append($"<sav:serialNumber>{Serial.Text.Trim()}</sav:serialNumber>");
+            xml.Append($"<sav:userID>{SSO.Text.Trim()}</sav:userID>");
             xml.Append("</mes:in0>");
             xml.Append("</mes:saveDCP>");
             xml.Append("</soapenv:Body>");
@@ -140,7 +146,14 @@ namespace SOAPTester
 
             return xml.ToString();
         }
-
+        /*
+         Operation.Text
+        PartNumber.Text
+        PartNumber.Text
+        Route.Text
+        SSO.Text
+        Serial.Text
+         */
 
         public string CreatePicMessage(string encodedImage)
         {
@@ -356,6 +369,11 @@ namespace SOAPTester
             {
                 PictureRad.Checked = false;
             }
+        }
+
+        private void ResetDCPs_Click(object sender, EventArgs e)
+        {
+            dict.Clear();
         }
     }
 }

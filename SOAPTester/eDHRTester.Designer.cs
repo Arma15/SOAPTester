@@ -63,6 +63,13 @@
             this.OperationName = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.FilePath = new System.Windows.Forms.TextBox();
+            this.Operation = new System.Windows.Forms.TextBox();
+            this.Route = new System.Windows.Forms.TextBox();
+            this.PartNumber = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.ResetDCPs = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // EndPoint
@@ -396,11 +403,83 @@
             this.FilePath.Size = new System.Drawing.Size(148, 26);
             this.FilePath.TabIndex = 36;
             // 
+            // Operation
+            // 
+            this.Operation.Location = new System.Drawing.Point(761, 353);
+            this.Operation.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Operation.Name = "Operation";
+            this.Operation.Size = new System.Drawing.Size(230, 26);
+            this.Operation.TabIndex = 37;
+            // 
+            // Route
+            // 
+            this.Route.Location = new System.Drawing.Point(761, 297);
+            this.Route.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Route.Name = "Route";
+            this.Route.Size = new System.Drawing.Size(230, 26);
+            this.Route.TabIndex = 38;
+            // 
+            // PartNumber
+            // 
+            this.PartNumber.Location = new System.Drawing.Point(761, 241);
+            this.PartNumber.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.PartNumber.Name = "PartNumber";
+            this.PartNumber.Size = new System.Drawing.Size(230, 26);
+            this.PartNumber.TabIndex = 39;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(757, 272);
+            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(99, 20);
+            this.label16.TabIndex = 40;
+            this.label16.Text = "Route Name";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(757, 216);
+            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(94, 20);
+            this.label17.TabIndex = 41;
+            this.label17.Text = "PartNumber";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(757, 328);
+            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(125, 20);
+            this.label18.TabIndex = 42;
+            this.label18.Text = "Operation Name";
+            // 
+            // ResetDCPs
+            // 
+            this.ResetDCPs.Location = new System.Drawing.Point(1063, 550);
+            this.ResetDCPs.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ResetDCPs.Name = "ResetDCPs";
+            this.ResetDCPs.Size = new System.Drawing.Size(119, 28);
+            this.ResetDCPs.TabIndex = 43;
+            this.ResetDCPs.Text = "Reset DCPs";
+            this.ResetDCPs.UseVisualStyleBackColor = true;
+            this.ResetDCPs.Click += new System.EventHandler(this.ResetDCPs_Click);
+            // 
             // eDHRTester
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 1043);
+            this.Controls.Add(this.ResetDCPs);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.PartNumber);
+            this.Controls.Add(this.Route);
+            this.Controls.Add(this.Operation);
             this.Controls.Add(this.FilePath);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.OperationName);
@@ -481,6 +560,13 @@
         private System.Windows.Forms.TextBox OperationName;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox FilePath;
+        private System.Windows.Forms.TextBox Operation;
+        private System.Windows.Forms.TextBox Route;
+        private System.Windows.Forms.TextBox PartNumber;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Button ResetDCPs;
     }
 }
 
