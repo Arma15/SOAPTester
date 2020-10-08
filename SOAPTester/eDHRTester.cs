@@ -46,11 +46,17 @@ namespace SOAPTester
 
         private void AddDcpBtn_Click(object sender, EventArgs e)
         {
-            dict.Add(Tag.Text.ToString(), Value.Text.ToString());
-
-            MessageBox.Show($"Added -->  Tag: {Tag.Text} / Value: {Value.Text}");
-            Tag.Text = "";
-            Value.Text = "";
+            try
+            {
+                dict.Add(Tag.Text.ToString(), Value.Text.ToString());
+                MessageBox.Show($"Added -->  Tag: {Tag.Text} / Value: {Value.Text}");
+                Tag.Text = "";
+                Value.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void PreviewBtn_Click(object sender, EventArgs e)
