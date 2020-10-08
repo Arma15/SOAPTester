@@ -76,7 +76,7 @@ namespace SOAPTester
                 {
                     ReturnedXML = SendXMLMessage(CreateGetUnitInfoMessage());
                 }
-                else
+                else if (DCPRad.Checked)
                 {
                     ReturnedXML = SendXMLMessage(CurrXML);
                     if (ReturnedXML == "")
@@ -84,6 +84,18 @@ namespace SOAPTester
                         MessageBox.Show("Error.. empty returned message..");
                         return;
                     }
+                    else
+                    {
+                        ParseReturnMessage(ReturnedXML);
+                    }
+                }
+                else if (StartRad.Checked)
+                {
+                    ReturnedXML = SendXMLMessage(CreateStartUnitMessage());
+                }
+                else
+                {
+                    MessageBox.Show("ERROR: No message option selected..");
                 }
                 Returned.Text = ReturnedXML;
             }
@@ -242,6 +254,36 @@ namespace SOAPTester
              */
         }
 
+        public string CreateStartUnitMessage()
+        {
+            StringBuilder xml = new StringBuilder();
+
+            // Start the frame
+            xml.Append(@"<soapenv:Envelope xmlns:soapenv=""http://schemas.xmlsoap.org/soap/envelope/"" xmlns:mes=""http://mes.health.ge.com"" xmlns:get=""http://getUnitInfo.mes.health.ge.com"">");
+            xml.Append("<soapenv:Header/>");
+            xml.Append("<soapenv:Body>");
+            xml.Append("<mes:getUnitInfo>");
+            xml.Append("<mes:in0>");
+
+            // The guts
+            xml.Append($"<star:operationName>{Operation.Text.Trim()}</star:operationName>");
+            xml.Append($"<star:partName>{PartNumber.Text.Trim()}</star:partName>");
+            xml.Append($"<star:partRevision>{PartRevision.Text.Trim()}</star:partRevision>");
+            xml.Append($"<star:password>{Password.Text.Trim()}</star:password>");
+            xml.Append($"<star:routeName>{Route.Text.Trim()}</star:routeName>");
+            xml.Append($"<star:serialNumber>{Serial.Text.Trim()}</star:serialNumber>");
+            xml.Append($"<star:userID>{SSO.Text.Trim()}</star:userID>");
+            xml.Append($"<star:workCenter></star:workCenter>");
+
+            // End the frame
+            xml.Append("</mes:in0>");
+            xml.Append("</mes:getUnitInfo>");
+            xml.Append("</soapenv:Body>");
+            xml.Append("</soapenv:Envelope>");
+
+            return xml.ToString();
+        }
+
         public string CreateDCP(string tag, string value)
         {
             StringBuilder sb = new StringBuilder();
@@ -385,6 +427,8 @@ namespace SOAPTester
         private void ResetDCPs_Click(object sender, EventArgs e)
         {
             dict.Clear();
+            Preview.Text = "";
+            Returned.Text = "";
         }
 
         private void UnlockBtn_Click(object sender, EventArgs e)
@@ -401,7 +445,5 @@ namespace SOAPTester
                 Serial.Text = "";
             }
         }
-
-
     }
 }

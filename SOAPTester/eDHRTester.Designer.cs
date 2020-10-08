@@ -73,6 +73,7 @@
             this.Unlock = new System.Windows.Forms.TextBox();
             this.UnlockBtn = new System.Windows.Forms.Button();
             this.DCPRad = new System.Windows.Forms.RadioButton();
+            this.StartRad = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // EndPoint
@@ -504,11 +505,23 @@
             this.DCPRad.UseVisualStyleBackColor = true;
             this.DCPRad.CheckedChanged += new System.EventHandler(this.DCPRad_CheckedChanged);
             // 
+            // StartRad
+            // 
+            this.StartRad.AutoSize = true;
+            this.StartRad.Location = new System.Drawing.Point(457, 60);
+            this.StartRad.Name = "StartRad";
+            this.StartRad.Size = new System.Drawing.Size(102, 24);
+            this.StartRad.TabIndex = 47;
+            this.StartRad.TabStop = true;
+            this.StartRad.Text = "Start Unit";
+            this.StartRad.UseVisualStyleBackColor = true;
+            // 
             // eDHRTester
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 1043);
+            this.Controls.Add(this.StartRad);
             this.Controls.Add(this.DCPRad);
             this.Controls.Add(this.UnlockBtn);
             this.Controls.Add(this.Unlock);
@@ -609,6 +622,7 @@
         private System.Windows.Forms.TextBox Unlock;
         private System.Windows.Forms.Button UnlockBtn;
         private System.Windows.Forms.RadioButton DCPRad;
+        private System.Windows.Forms.RadioButton StartRad;
     }
 }
 
