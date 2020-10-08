@@ -70,11 +70,13 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.ResetDCPs = new System.Windows.Forms.Button();
+            this.Unlock = new System.Windows.Forms.TextBox();
+            this.UnlockBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // EndPoint
             // 
-            this.EndPoint.Location = new System.Drawing.Point(18, 42);
+            this.EndPoint.Location = new System.Drawing.Point(13, 73);
             this.EndPoint.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.EndPoint.Name = "EndPoint";
             this.EndPoint.Size = new System.Drawing.Size(416, 26);
@@ -120,7 +122,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(176, 14);
+            this.label1.Location = new System.Drawing.Point(179, 45);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 20);
@@ -468,11 +470,32 @@
             this.ResetDCPs.UseVisualStyleBackColor = true;
             this.ResetDCPs.Click += new System.EventHandler(this.ResetDCPs_Click);
             // 
+            // Unlock
+            // 
+            this.Unlock.Location = new System.Drawing.Point(4, 8);
+            this.Unlock.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Unlock.Name = "Unlock";
+            this.Unlock.Size = new System.Drawing.Size(148, 26);
+            this.Unlock.TabIndex = 44;
+            // 
+            // UnlockBtn
+            // 
+            this.UnlockBtn.Location = new System.Drawing.Point(160, 8);
+            this.UnlockBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.UnlockBtn.Name = "UnlockBtn";
+            this.UnlockBtn.Size = new System.Drawing.Size(126, 26);
+            this.UnlockBtn.TabIndex = 45;
+            this.UnlockBtn.Text = "Unlock";
+            this.UnlockBtn.UseVisualStyleBackColor = true;
+            this.UnlockBtn.Click += new System.EventHandler(this.UnlockBtn_Click);
+            // 
             // eDHRTester
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 1043);
+            this.Controls.Add(this.UnlockBtn);
+            this.Controls.Add(this.Unlock);
             this.Controls.Add(this.ResetDCPs);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
@@ -567,6 +590,8 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button ResetDCPs;
+        private System.Windows.Forms.TextBox Unlock;
+        private System.Windows.Forms.Button UnlockBtn;
     }
 }
 

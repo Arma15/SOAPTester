@@ -42,12 +42,6 @@ namespace SOAPTester
         {
             InitializeComponent();
             dict = new Dictionary<string, string>();
-            Operation.Text = "UNS_VividELean_70";
-            Route.Text = "UNS_VividELean_Manufacturing_Route";
-            SSO.Text = "502702092";
-            Password.Text = "D1NPnWPE5WwnE9vatgdNzUFICLN1WA3GM6UCLN1WA3GM6U";
-            PartNumber.Text = "";
-            Serial.Text = "";
         }
 
         private void AddDcpBtn_Click(object sender, EventArgs e)
@@ -374,6 +368,21 @@ namespace SOAPTester
         private void ResetDCPs_Click(object sender, EventArgs e)
         {
             dict.Clear();
+        }
+
+        private void UnlockBtn_Click(object sender, EventArgs e)
+        {
+            if (Unlock.Text.Trim() == "ge710")
+            {
+                Operation.Text = "UNS_VividELean_70";
+                Route.Text = "UNS_VividELean_Manufacturing_Route";
+                SSO.Text = "502702092";
+                Password.Text = "D1NPnWPE5WwnE9vatgdNzUFICLN1WA3GM6UCLN1WA3GM6U";
+                EndPoint.Text = @"http://HCUSALPMESVMS5.logon.ds.ge.com:8084/MachineConnectivity/IWebService";
+
+                PartNumber.Text = "";
+                Serial.Text = "";
+            }
         }
     }
 }
