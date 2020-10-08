@@ -461,10 +461,10 @@
             // 
             // ResetDCPs
             // 
-            this.ResetDCPs.Location = new System.Drawing.Point(1063, 550);
+            this.ResetDCPs.Location = new System.Drawing.Point(1063, 535);
             this.ResetDCPs.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ResetDCPs.Name = "ResetDCPs";
-            this.ResetDCPs.Size = new System.Drawing.Size(119, 28);
+            this.ResetDCPs.Size = new System.Drawing.Size(119, 43);
             this.ResetDCPs.TabIndex = 43;
             this.ResetDCPs.Text = "Reset DCPs";
             this.ResetDCPs.UseVisualStyleBackColor = true;
@@ -485,7 +485,7 @@
             this.UnlockBtn.Location = new System.Drawing.Point(160, 8);
             this.UnlockBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.UnlockBtn.Name = "UnlockBtn";
-            this.UnlockBtn.Size = new System.Drawing.Size(126, 26);
+            this.UnlockBtn.Size = new System.Drawing.Size(126, 32);
             this.UnlockBtn.TabIndex = 45;
             this.UnlockBtn.Text = "Unlock";
             this.UnlockBtn.UseVisualStyleBackColor = true;
