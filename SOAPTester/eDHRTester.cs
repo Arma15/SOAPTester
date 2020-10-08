@@ -266,14 +266,14 @@ namespace SOAPTester
             xml.Append("<mes:in0>");
 
             // The guts
-            xml.Append($"<star:operationName>{Operation.Text.Trim()}</star:operationName>");
-            xml.Append($"<star:partName>{PartNumber.Text.Trim()}</star:partName>");
-            xml.Append($"<star:partRevision>{PartRevision.Text.Trim()}</star:partRevision>");
-            xml.Append($"<star:password>{Password.Text.Trim()}</star:password>");
-            xml.Append($"<star:routeName>{Route.Text.Trim()}</star:routeName>");
-            xml.Append($"<star:serialNumber>{Serial.Text.Trim()}</star:serialNumber>");
-            xml.Append($"<star:userID>{SSO.Text.Trim()}</star:userID>");
-            xml.Append($"<star:workCenter></star:workCenter>");
+            xml.Append($"<start:operationName>{Operation.Text.Trim()}</start:operationName>");
+            xml.Append($"<start:partName>{PartNumber.Text.Trim()}</start:partName>");
+            xml.Append($"<start:partRevision>{PartRevision.Text.Trim()}</start:partRevision>");
+            xml.Append($"<start:password>{Password.Text.Trim()}</start:password>");
+            xml.Append($"<start:routeName>{Route.Text.Trim()}</start:routeName>");
+            xml.Append($"<start:serialNumber>{Serial.Text.Trim()}</start:serialNumber>");
+            xml.Append($"<start:userID>{SSO.Text.Trim()}</start:userID>");
+            xml.Append($"<start:workCenter></start:workCenter>");
 
             // End the frame
             xml.Append("</mes:in0>");
