@@ -259,7 +259,7 @@ namespace SOAPTester
             StringBuilder xml = new StringBuilder();
 
             // Start the frame
-            xml.Append(@"<soapenv:Envelope xmlns:soapenv=""http://schemas.xmlsoap.org/soap/envelope/"" xmlns:mes=""http://mes.health.ge.com"" xmlns:get=""http://getUnitInfo.mes.health.ge.com"">");
+            xml.Append(@"<soapenv:Envelope xmlns:soapenv=""http://schemas.xmlsoap.org/soap/envelope/"" xmlns:mes=""http://mes.health.ge.com"" xmlns:star=""http://startUnit.mes.health.ge.com"">");
             xml.Append("<soapenv:Header/>");
             xml.Append("<soapenv:Body>");
             xml.Append("<mes:startUnit>");
